@@ -213,10 +213,8 @@ def PCA(X, out_dim):
     D = X.shape[0] # feature dimension
     N = X.shape[1] # number of data instances
 
-    ### Your job 1 starts here ###
     mu = (np.mean(X, axis = 1)).reshape(-1, 1)
     Sigma = np.cov(X)
-    ### Your job 1 ends here ###
 
     """
         np.linalg.eigh (or np.linalg.eig) for eigendecomposition.
@@ -261,17 +259,7 @@ def main(args):
             print("The mean vector is: ", mu)
             print("The projection matrix is: ", W)
 
-        ### Your job 2 starts here ###
-        """
-        Create a out_dim-by-N matrix (numpy array) named "new_X" to store the data after PCA.
-        In other words, you are to apply mu and W to X
-        1. new_X has size out_dim-by-N
-        2. each column of new_X corresponds to each column of X
-        3. Useful tool: check the "np.matmul" function and the builtin "transpose()" function of a numpy array 
-        4. Hint: Just one line of code
-        """
         new_X = np.matmul(W.transpose(), X - mu)
-        ### Your job 2 ends here ###
 
     elif args.method == "LE":
         print("Method is LE")
